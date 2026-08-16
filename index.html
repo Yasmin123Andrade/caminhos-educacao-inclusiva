@@ -527,58 +527,23 @@
 
     .modal-box { padding: 22px; }
   }
-.leis-section {
-  background: white;
-}
-.laws-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.law-card {
-  background: var(--bg-cream);
-  border: 3px solid var(--c-blue);
-  border-radius: var(--radius-md);
-  padding: 22px;
-  position: relative;
-  box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease;
-}
-.law-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--c-green);
-}
-.law-year-tag {
-  background: var(--c-green);
-  color: white;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.2rem;
-  padding: 4px 12px;
-  border-radius: 12px;
-  display: inline-block;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 0 var(--c-blue);
-}
-.law-card h4 {
-  font-size: 1.15rem;
-  color: var(--c-blue);
-  margin-bottom: 8px;
-}
-.law-card p {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0;
-}
-:root {
+ :root {
+    /* Paleta Oficial */
     --c-blue: #003B8C;
-    --c-yellow: #FFE000;
+    --c-green: #008C11;
     --c-darkred: #8C0200;
+    --c-red: #FF2500;
+    --c-yellow: #FFE000;
  
     --bg-cream: #FFFDF5;
     --bg-blue-light: #EBF3FF;
  
     --text-dark: #1E252B;
+    --radius-lg: 24px;
     --radius-md: 16px;
+ 
+    --shadow-fun: 0 8px 0px rgba(0,0,0,0.12), 0 15px 25px -5px rgba(0,0,0,0.08);
+    --shadow-card: 0 10px 25px -5px rgba(0,0,0,0.06);
   }
  
   * { box-sizing: border-box; }
@@ -605,6 +570,7 @@
  
   section {
     padding: 70px 0;
+    position: relative;
   }
  
   .sec-title {
@@ -613,6 +579,7 @@
   }
   .sec-title h2 {
     font-size: 2.3rem;
+    color: var(--c-blue);
     display: inline-block;
     position: relative;
   }
@@ -626,7 +593,52 @@
   }
   .sec-title p {
     font-size: 1.1rem;
+    color: #555;
     font-weight: 600;
+  }
+ 
+  /* SECTION: LEIS & CONQUISTAS */
+  .leis-section {
+    background: white;
+  }
+  .laws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .law-card {
+    background: var(--bg-cream);
+    border: 3px solid var(--c-blue);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease;
+  }
+  .law-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--c-green);
+  }
+  .law-year-tag {
+    background: var(--c-green);
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0 var(--c-blue);
+  }
+  .law-card h4 {
+    font-size: 1.15rem;
+    color: var(--c-blue);
+    margin-bottom: 8px;
+  }
+  .law-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
   }
  
   /* SECTION: STATS (IMPACTO EM NÚMEROS) */
