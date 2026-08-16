@@ -293,6 +293,79 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
   }
+
+   /* SECTION: O QUE É (CARDS INTERATIVOS) */
+  .intro-section {
+    background: white;
+  }
+  .sec-title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+  .sec-title h2 {
+    font-size: 2.3rem;
+    color: var(--c-blue);
+    display: inline-block;
+    position: relative;
+  }
+  .sec-title h2::after {
+    content: '';
+    display: block;
+    height: 8px;
+    background: var(--c-yellow);
+    border-radius: 4px;
+    margin-top: -6px;
+  }
+  .sec-title p {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .pillar-card {
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    border: 3.5px solid var(--c-blue);
+    box-shadow: var(--shadow-fun);
+    transition: transform 0.2s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  .pillar-card:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+  .pillar-card.p-blue { background: var(--bg-blue-light); border-color: var(--c-blue); }
+  .pillar-card.p-green { background: var(--bg-green-light); border-color: var(--c-green); }
+  .pillar-card.p-red { background: var(--bg-red-light); border-color: var(--c-red); }
+
+  .pillar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+  .pillar-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+  .pillar-card.p-blue h3 { color: var(--c-blue); }
+  .pillar-card.p-green h3 { color: var(--c-green); }
+  .pillar-card.p-red h3 { color: var(--c-darkred); }
+  
+  .badge-click {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: white;
+    border: 2px solid currentColor;
+  }
+  
 /* FOOTER */
   footer {
     background: var(--c-blue);
