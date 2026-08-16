@@ -527,7 +527,143 @@
 
     .modal-box { padding: 22px; }
   }
-
+.leis-section {
+  background: white;
+}
+.laws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.law-card {
+  background: var(--bg-cream);
+  border: 3px solid var(--c-blue);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease;
+}
+.law-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--c-green);
+}
+.law-year-tag {
+  background: var(--c-green);
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 0 var(--c-blue);
+}
+.law-card h4 {
+  font-size: 1.15rem;
+  color: var(--c-blue);
+  margin-bottom: 8px;
+}
+.law-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+:root {
+    --c-blue: #003B8C;
+    --c-yellow: #FFE000;
+    --c-darkred: #8C0200;
+ 
+    --bg-cream: #FFFDF5;
+    --bg-blue-light: #EBF3FF;
+ 
+    --text-dark: #1E252B;
+    --radius-md: 16px;
+  }
+ 
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+ 
+  h1, h2, h3, h4 {
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+  }
+ 
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+ 
+  section {
+    padding: 70px 0;
+  }
+ 
+  .sec-title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+  .sec-title h2 {
+    font-size: 2.3rem;
+    display: inline-block;
+    position: relative;
+  }
+  .sec-title h2::after {
+    content: '';
+    display: block;
+    height: 8px;
+    background: var(--c-yellow);
+    border-radius: 4px;
+    margin-top: -6px;
+  }
+  .sec-title p {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+ 
+  /* SECTION: STATS (IMPACTO EM NÚMEROS) */
+  .stats-section {
+    background: var(--c-blue);
+    color: white;
+  }
+  .stats-section .sec-title h2 { color: white; }
+  .stats-section .sec-title p { color: var(--bg-blue-light); }
+ 
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.1);
+    border: 3px solid var(--c-yellow);
+    border-radius: var(--radius-md);
+    padding: 28px 20px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+  .stat-number {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.2rem;
+    color: var(--c-yellow);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 var(--c-darkred);
+  }
+  .stat-box p {
+    font-size: 1.05rem;
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+  }
     /* FIM - CSS DO QUIZ */
 </style>
 </head>
