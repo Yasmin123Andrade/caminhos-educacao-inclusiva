@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -81,25 +83,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
     padding: 12px 24px;
-    position: relative;
-    
-    max-width: 1360px;
   }
   .brand {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     color: var(--c-blue);
     font-size: 1.35rem;
     font-weight: 700;
-    min-width: 0;
-  }
-  .brand span:not(.brand-badge) {
-    white-space: nowrap;
   }
   .brand-badge {
     background: var(--c-red);
@@ -109,14 +102,11 @@
     border-radius: 20px;
     font-family: 'Fredoka', sans-serif;
     text-transform: uppercase;
-    white-space: nowrap;
   }
 
   nav.mainnav {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    gap: 4px;
+    gap: 12px;
   }
   nav.mainnav a {
     text-decoration: none;
@@ -126,7 +116,6 @@
     padding: 8px 16px;
     border-radius: 20px;
     transition: all 0.2s ease;
-    white-space: nowrap;
   }
   nav.mainnav a:hover {
     background: var(--c-yellow);
@@ -136,7 +125,6 @@
 
   .navtoggle {
     display: none;
-    flex-shrink: 0;
     background: var(--c-blue);
     color: white;
     border: none;
@@ -146,20 +134,7 @@
     cursor: pointer;
   }
 
-  
-  @media (max-width: 1310px) {
-    .topbar .wrap { padding: 12px 16px; }
-    nav.mainnav { gap: 0; }
-    nav.mainnav a { padding: 8px 10px; font-size: 0.86rem; }
-  }
-
- 
-  @media (max-width: 1200px) {
-    .topbar .wrap {
-      flex-wrap: wrap;
-    }
-    .brand { font-size: 1.1rem; }
-    .brand-badge { display: none; }
+  @media (max-width: 850px) {
     nav.mainnav {
       position: absolute;
       top: 100%;
@@ -167,20 +142,14 @@
       right: 0;
       background: #fff;
       flex-direction: column;
-      align-items: stretch;
-      gap: 6px;
+      gap: 8px;
       padding: 16px 24px;
       border-bottom: 4px solid var(--c-yellow);
       display: none;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     nav.mainnav.open { display: flex; }
-    nav.mainnav a { text-align: left; padding: 12px 16px; }
     .navtoggle { display: block; }
-  }
-
-  @media (max-width: 400px) {
-    .brand span:not(.brand-badge):not(:first-child) { font-size: 0.95rem; }
   }
 
   /* HERO SECTION */
@@ -294,7 +263,7 @@
     100% { transform: translateY(-10px); }
   }
 
-   /* SECTION: O QUE É (CARDS INTERATIVOS) */
+  /* SECTION: O QUE É (CARDS INTERATIVOS) */
   .intro-section {
     background: white;
   }
@@ -366,7 +335,7 @@
     border: 2px solid currentColor;
   }
 
-   /* SECTION: LINHA DO TEMPO GAMEFICADA */
+  /* SECTION: LINHA DO TEMPO GAMEFICADA */
   .timeline-section {
     background: var(--bg-yellow-light);
     border-top: 5px solid var(--c-yellow);
@@ -455,20 +424,297 @@
     color: var(--c-blue);
   }
 
+  /* SECTION: LEIS & CONQUISTAS CAROUSEL */
+  .leis-section {
+    background: white;
+  }
+  .laws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .law-card {
+    background: var(--bg-cream);
+    border: 3px solid var(--c-blue);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease;
+  }
+  .law-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--c-green);
+  }
+  .law-year-tag {
+    background: var(--c-green);
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0 var(--c-blue);
+  }
+  .law-card h4 {
+    font-size: 1.15rem;
+    color: var(--c-blue);
+    margin-bottom: 8px;
+  }
+  .law-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+  }
 
-/* FOOTER */
+  /* SECTION: STATS (IMPACTO EM NÚMEROS) */
+  .stats-section {
+    background: var(--c-blue);
+    color: white;
+  }
+  .stats-section .sec-title h2 { color: white; }
+  .stats-section .sec-title p { color: var(--bg-blue-light); }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.1);
+    border: 3px solid var(--c-yellow);
+    border-radius: var(--radius-md);
+    padding: 28px 20px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+  .stat-number {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.2rem;
+    color: var(--c-yellow);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 var(--c-darkred);
+  }
+  .stat-box p {
+    font-size: 1.05rem;
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* SECTION: PERGUNTAS QUE TODO MUNDO SE FAZ (FAQ REVOLUCIONADO) */
+  .faq-section {
+    background: var(--bg-green-light);
+    border-top: 5px solid var(--c-green);
+    border-bottom: 5px solid var(--c-green);
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+  }
+  .faq-card {
+    background: white;
+    border: 3.5px solid var(--c-blue);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 0 var(--c-blue);
+    position: relative;
+    user-select: none;
+  }
+  .faq-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 var(--c-blue);
+  }
+  .faq-question {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.15rem;
+    color: var(--c-darkred);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .faq-icon-btn {
+    width: 32px;
+    height: 32px;
+    background: var(--c-yellow);
+    color: var(--c-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .faq-card.active .faq-icon-btn {
+    transform: rotate(45deg);
+    background: var(--c-red);
+    color: white;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, margin-top 0.35s ease;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .faq-card.active .faq-answer {
+    max-height: 250px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 2px dashed #ddd;
+  }
+
+  /* SECTION: MURAL DE REFLEXÕES (PADLET INTERATIVO MODERNO) */
+  .mural-section {
+    background: white;
+  }
+  .mural-container {
+    background: var(--bg-yellow-light);
+    border: 4px dashed var(--c-darkred);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    position: relative;
+  }
+  .mural-form {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .mural-form input[type="text"] {
+    flex: 1;
+    min-width: 260px;
+    padding: 16px 20px;
+    border-radius: 30px;
+    border: 3px solid var(--c-blue);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .mural-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--c-red);
+  }
+  
+  .color-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    border: 3px solid var(--c-blue);
+  }
+  .color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease;
+  }
+  .color-dot.selected {
+    transform: scale(1.25);
+    border-color: var(--c-blue);
+  }
+
+  .postits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .postit {
+    padding: 20px;
+    border-radius: 12px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    position: relative;
+    transform: rotate(var(--r, -1deg));
+    transition: transform 0.2s ease;
+    word-break: break-word;
+  }
+  .postit:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+  }
+  .postit-tag {
+    font-size: 0.75rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 6px;
+  }
+
+  /* MODAL PARA DETALHES */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    padding: 20px;
+  }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-box {
+    background: white;
+    border: 5px solid var(--c-blue);
+    border-radius: var(--radius-lg);
+    max-width: 550px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+  .modal-overlay.open .modal-box {
+    transform: translateY(0);
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--c-red);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  /* FOOTER */
   footer {
     background: var(--c-blue);
     color: white;
     padding: 40px 0 24px;
     border-top: 6px solid var(--c-yellow);
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-    });
-  } mainNav.classList.toggle('open');
-    });
-  }ter .wrap {
+    font-size: 0.95rem;
+  }
+  footer .wrap {
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -477,7 +723,7 @@
   footer h4 { color: var(--c-yellow); margin-bottom: 8px; }
   footer p { color: var(--bg-blue-light); margin: 0; max-width: 500px; }
 
-  /* INÍCIO - CSS DO QUIZ */
+  /* ESTILOS DO QUIZ */
   .quiz-section {
     background: var(--bg-blue-light);
     border-top: 5px solid var(--c-blue);
@@ -512,32 +758,28 @@
   .quiz-meta {
     display: flex;
     justify-content: space-between;
-  if (muralForm && muralInput && postitsGrid) {
-    muralForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = muralInput.value.trim();
-      if (!text) return;
-
-      const rotDeg = (Math.random() * 6 - 3).toFixed(1);
-      const postit = document.createElement('div');
-      postit.className = 'postit';
-      postit.style.background = selectedPostitColor;
-      postit.style.setProperty('--r', rotDeg + 'deg');
-      
-      postit.innerHTML = `
-        <div class="postit-tag">Sua Reflexão</div>
-        "${text}"
-      `;
-
-      postitsGrid.prepend(postit);
-      muralInput.value = '';
-    };
+    align-items: center;
+    margin-bottom: 18px;
+    font-family: 'Fredoka', sans-serif;
   }
-      postitsGrid.prepend(postit);
-      muralInput.value = '';
-    };
-  ine-height: 1.35;
-  
+  .quiz-step-tag {
+    background: var(--c-yellow);
+    color: var(--c-blue);
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .quiz-score-live {
+    font-size: 1.05rem;
+    color: var(--c-blue);
+  }
+  .quiz-question-title {
+    font-size: 1.45rem;
+    color: var(--c-blue);
+    margin-bottom: 24px;
+    line-height: 1.35;
+  }
   .quiz-options {
     display: flex;
     flex-direction: column;
@@ -545,7 +787,6 @@
     margin-bottom: 24px;
   }
   .quiz-option {
-    width: 100%;
     background: var(--bg-cream);
     border: 3px solid var(--c-blue);
     border-radius: var(--radius-md);
@@ -560,7 +801,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    min-height: 72px;
   }
   .quiz-option:hover:not(.disabled) {
     transform: translateY(-2px);
@@ -636,214 +876,11 @@
     box-shadow: 0 5px 0 var(--c-blue);
     margin: 16px 0;
   }
-
-
-  @media (max-width: 850px) {
-    .wrap { padding: 0 18px; }
-    section { padding: 50px 0; }
-
-    .hero { padding: 36px 0 50px; }
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    .hero-grid > div:first-child { order: 1; text-align: left; }
-    .hero-card-art { order: 2; max-width: 360px; }
-    .hero-photo { min-height: 220px; }
-    .hero-btns { flex-direction: column; align-items: stretch; }
-    .hero-btns .btn { justify-content: center; text-align: center; }
-
-    .sec-title h2 { font-size: 1.8rem; }
-
-    .quiz-card { padding: 24px 20px; }
-    .quiz-meta { flex-wrap: wrap; gap: 8px; }
-    .quiz-question-title { font-size: 1.2rem; }
-
-    .timeline-display { padding: 22px; }
-    .stage-header { flex-wrap: wrap; }
-    .stage-header h3 { font-size: 1.4rem; }
-
-    footer .wrap { flex-direction: column; gap: 20px; }
-  }
-
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .wrap { padding: 0 16px; }
-    section { padding: 40px 0; }
-
-    .pillars-grid,
-    .laws-grid,
-    .faq-grid,
-    .stats-grid,
-    .postits-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .mural-form { flex-direction: column; align-items: stretch; }
-    .mural-form input[type="text"] { min-width: 0; width: 100%; }
-    .color-picker { justify-content: center; }
-
-    .quiz-card { padding: 18px 16px; }
-    .quiz-option { padding: 12px 16px; font-size: 0.98rem; }
-
-    .stat-number { font-size: 2.4rem; }
-
-    .modal-box { padding: 22px; }
-  }
- :root {
-    /* Paleta Oficial */
-    --c-blue: #003B8C;
-    --c-green: #008C11;
-    --c-darkred: #8C0200;
-    --c-red: #FF2500;
-    --c-yellow: #FFE000;
- 
-    --bg-cream: #FFFDF5;
-    --bg-blue-light: #EBF3FF;
- 
-    --text-dark: #1E252B;
-    --radius-lg: 24px;
-    --radius-md: 16px;
- 
-    --shadow-fun: 0 8px 0px rgba(0,0,0,0.12), 0 15px 25px -5px rgba(0,0,0,0.08);
-    --shadow-card: 0 10px 25px -5px rgba(0,0,0,0.06);
-  }
- 
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background-color: var(--bg-cream);
-    color: var(--text-dark);
-    font-family: 'Nunito', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-  }
- 
-  h1, h2, h3, h4 {
-    font-family: 'Fredoka', sans-serif;
-    letter-spacing: 0.5px;
-    margin-top: 0;
-  }
- 
-  .wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
- 
-  section {
-    padding: 70px 0;
-    position: relative;
-  }
- 
-  .sec-title {
-    text-align: center;
-    margin-bottom: 45px;
-  }
-  .sec-title h2 {
-    font-size: 2.3rem;
-    color: var(--c-blue);
-    display: inline-block;
-    position: relative;
-  }
-  .sec-title h2::after {
-    content: '';
-    display: block;
-    height: 8px;
-    background: var(--c-yellow);
-    border-radius: 4px;
-    margin-top: -6px;
-  }
-  .sec-title p {
-    font-size: 1.1rem;
-    color: #555;
-    font-weight: 600;
-  }
- 
-  /* SECTION: LEIS & CONQUISTAS */
-  .leis-section {
-    background: white;
-  }
-  .laws-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  .law-card {
-    background: var(--bg-cream);
-    border: 3px solid var(--c-blue);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    position: relative;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.2s ease;
-  }
-  .law-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--c-green);
-  }
-  .law-year-tag {
-    background: var(--c-green);
-    color: white;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.2rem;
-    padding: 4px 12px;
-    border-radius: 12px;
-    display: inline-block;
-    margin-bottom: 10px;
-    box-shadow: 2px 2px 0 var(--c-blue);
-  }
-  .law-card h4 {
-    font-size: 1.15rem;
-    color: var(--c-blue);
-    margin-bottom: 8px;
-  }
-  .law-card p {
-    font-size: 0.95rem;
-    color: #555;
-    margin: 0;
-  }
- 
-  /* SECTION: STATS (IMPACTO EM NÚMEROS) */
-  .stats-section {
-    background: var(--c-blue);
-    color: white;
-  }
-  .stats-section .sec-title h2 { color: white; }
-  .stats-section .sec-title p { color: var(--bg-blue-light); }
- 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-  }
-  .stat-box {
-    background: rgba(255,255,255,0.1);
-    border: 3px solid var(--c-yellow);
-    border-radius: var(--radius-md);
-    padding: 28px 20px;
-    text-align: center;
-    backdrop-filter: blur(5px);
-  }
-  .stat-number {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 3.2rem;
-    color: var(--c-yellow);
-    line-height: 1;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 0 var(--c-darkred);
-  }
-  .stat-box p {
-    font-size: 1.05rem;
-    margin: 0;
-    color: #fff;
-    font-weight: 600;
-  }
-    /* FIM - CSS DO QUIZ */
 </style>
 </head>
 <body>
-  <!-- TOPBAR / NAV -->
+
+<!-- TOPBAR / NAV -->
 <header class="topbar">
   <div class="wrap">
     <a href="#topo" class="brand">
@@ -892,128 +929,41 @@
       </div>
     </div>
   </section>
- <!-- LEIS E CONQUISTAS -->
-  <section class="leis-section" id="leis">
+
+  <!-- O QUE É EDUCAÇÃO INCLUSIVA -->
+  <section class="intro-section" id="o-que-e">
     <div class="wrap">
       <div class="sec-title">
-        <h2>📜 As Grandes Leis do Brasil</h2>
-        <p>A linha do tempo das conquistas legais que garantem esse direito!</p>
+        <h2>O que é a Educação Inclusiva?</h2>
+        <p>Clique nos cards coloridos para descobrir os conceitos fundamentais de forma simples!</p>
       </div>
 
-      <div class="laws-grid">
-        <div class="law-card">
-          <span class="law-year-tag">1988</span>
-          <h4>Constituição Federal</h4>
-          <p>Garante que a educação é um direito de TODOS os brasileiros, sem preconceito de qualquer tipo.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card p-blue" onclick="openModal('Pai da Inclusão: Todos Juntos!', 'Educação inclusiva significa que TODOS os estudantes — com ou sem deficiência, autismo ou altas habilidades — aprendem na MESMA sala de aula regular. A escola ajusta as atividades para o aluno, e nunca o contrário!')">
+          <div class="pillar-icon">🏫</div>
+          <h3>Todos na Mesma Sala</h3>
+          <p>Não é criar uma sala separada. É acolher todo mundo junto no mesmo ambiente de aprendizado!</p>
+          <span class="badge-click" style="color: var(--c-blue);">Clique para Saber +</span>
         </div>
-        <div class="law-card">
-          <span class="law-year-tag">1996</span>
-          <h4>LDB (Lei de Diretrizes)</h4>
-          <p>Determina que o ensino para alunos com deficiência deve ser feito preferencialmente na rede regular.</p>
+
+        <div class="pillar-card p-green" onclick="openModal('Mais do que se matricular!', 'Garantir a vaga na escola é só o primeiro passo. A inclusão de verdade exige professores preparados, rampas de acesso, material em Braille, intérpretes de Libras e muito carinho!')">
+          <div class="pillar-icon">🤝</div>
+          <h3>Apoio de Verdade</h3>
+          <p>A inclusão exige materiais adaptados, rampas, professores capacitados e o suporte de toda a escola.</p>
+          <span class="badge-click" style="color: var(--c-green);">Clique para Saber +</span>
         </div>
-        <div class="law-card">
-          <span class="law-year-tag">2011</span>
-          <h4>Decreto do AEE</h4>
-          <p>Garante o Atendimento Educacional Especializado e dobra os recursos para escolas inclusivas.</p>
-        </div>
-        <div class="law-card">
-          <span class="law-year-tag">2012</span>
-          <h4>Lei do Autismo</h4>
-          <p>Protege os direitos das pessoas com Transtorno do Espectro Autista e proíbe recusa de matrículas.</p>
-        </div>
-        <div class="law-card">
-          <span class="law-year-tag">2015</span>
-          <h4>Lei Brasileira de Inclusão</h4>
-          <p>Consolida que negar a matrícula de um estudante com deficiência é CRIME punível por lei.</p>
+
+        <div class="pillar-card p-red" onclick="openModal('É um Direito, não um Favor!', 'Ninguém está fazendo um favor ao matricular um estudante com deficiência. Estudar é um direito humano básico garantido por lei em nosso país!')">
+          <div class="pillar-icon">⚖️</div>
+          <h3>Direito Garantido</h3>
+          <p>Não é um favor nem uma caridade. É um direito de cada criança e jovem protegido por leis fortes no Brasil.</p>
+          <span class="badge-click" style="color: var(--c-darkred);">Clique para Saber +</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IMPACTO EM NÚMEROS -->
-  <section class="stats-section" id="numeros">
-    <div class="wrap">
-      <div class="sec-title">
-        <h2>📊 A Inclusão em Números no Brasil</h2>
-        <p>Dados reais extraídos do Censo Escolar que mostram o progresso e os desafios!</p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-number">+112%</div>
-          <p>Crescimento das matrículas de alunos com deficiência nas escolas regulares (de 2005 a 2011)!</p>
-        </div>
-
-        <div class="stat-box">
-          <div class="stat-number">-48%</div>
-          <p>Queda nas matrículas em escolas totalmente isoladas ou segregadas no mesmo período.</p>
-        </div>
-
-        <div class="stat-box">
-          <div class="stat-number">37%</div>
-          <p>Alunos com deficiência intelectual ainda estavam fora da escola em 2010 - nosso desafio atual!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SECTION: QUIZ INTERATIVO GAMIFICADO -->
-  <style>
-    /* (observe: estilos principais do quiz já foram adicionados ao <head>; este bloco serve apenas caso queira regras locais) */
-  </style>
-
-  <!-- INÍCIO - HTML DO QUIZ -->
-  <section class="quiz-section" id="quiz">
-    <div class="wrap">
-      <div class="sec-title">
-        <h2>🎮 Quiz Desafio: Mestre da Inclusão!</h2>
-        <p>Teste seus conhecimentos sobre o tema e veja se você já está afiado nos direitos e conceitos!</p>
-      </div>
-
-      <div class="quiz-card">
-        <!-- Container das Perguntas -->
-        <div id="quizQuestionBox">
-          <div class="quiz-progress-bar">
-            <div class="quiz-progress-fill" id="quizProgress"></div>
-          </div>
-
-          <div class="quiz-meta">
-            <span class="quiz-step-tag" id="quizStepTag">Pergunta 1 de 5</span>
-            <span class="quiz-score-live" id="quizScoreLive">Pontos: 0</span>
-          </div>
-
-          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta...</h3>
-
-          <div class="quiz-options" id="quizOptions">
-            <!-- Opções geradas via JS -->
-          </div>
-
-          <div class="quiz-feedback" id="quizFeedback"></div>
-
-          <div class="quiz-actions">
-            <button class="btn btn-primary" id="btnNextQuestion" style="display: none;" onclick="nextQuestion()">Próxima Pergunta ➔</button>
-          </div>
-        </div>
-
-        <!-- Tela do Resultado Final -->
-        <div class="quiz-results" id="quizResults">
-          <div class="quiz-results-icon" id="resultsIcon">🏆</div>
-          <h3 id="resultsTitle">Parabéns!</h3>
-          <p id="resultsSubtitle" style="font-size: 1.15rem; color: #555; font-weight: 600;">Você concluiu o Quiz da Escola Inclusiva!</p>
-          <div>
-            <span class="quiz-score-badge" id="finalScoreBadge">0 de 5 acertos</span>
-          </div>
-          <p id="resultsFeedbackText" style="font-size: 1.05rem; color: #444; max-width: 500px; margin: 0 auto 24px; line-height: 1.6;"></p>
-          <button class="btn btn-secondary" onclick="restartQuiz()">🔄 Tentar Novamente</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FIM - HTML DO QUIZ -->
-
-</main>
-
-<!-- LINHA DO TEMPO GAMEFICADA -->
+  <!-- LINHA DO TEMPO GAMEFICADA -->
   <section class="timeline-section" id="historia">
     <div class="wrap">
       <div class="sec-title">
@@ -1089,6 +1039,248 @@
     </div>
   </section>
 
+  <!-- LEIS E CONQUISTAS -->
+  <section class="leis-section" id="leis">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>📜 As Grandes Leis do Brasil</h2>
+        <p>A linha do tempo das conquistas legais que garantem esse direito!</p>
+      </div>
+
+      <div class="laws-grid">
+        <div class="law-card">
+          <span class="law-year-tag">1988</span>
+          <h4>Constituição Federal</h4>
+          <p>Garante que a educação é um direito de TODOS os brasileiros, sem preconceito de qualquer tipo.</p>
+        </div>
+        <div class="law-card">
+          <span class="law-year-tag">1996</span>
+          <h4>LDB (Lei de Diretrizes)</h4>
+          <p>Determina que o ensino para alunos com deficiência deve ser feito preferencialmente na rede regular.</p>
+        </div>
+        <div class="law-card">
+          <span class="law-year-tag">2011</span>
+          <h4>Decreto do AEE</h4>
+          <p>Garante o Atendimento Educacional Especializado e dobra os recursos para escolas inclusivas.</p>
+        </div>
+        <div class="law-card">
+          <span class="law-year-tag">2012</span>
+          <h4>Lei do Autismo</h4>
+          <p>Protege os direitos das pessoas com Transtorno do Espectro Autista e proíbe recusa de matrículas.</p>
+        </div>
+        <div class="law-card">
+          <span class="law-year-tag">2015</span>
+          <h4>Lei Brasileira de Inclusão</h4>
+          <p>Consolida que negar a matrícula de um estudante com deficiência é CRIME punível por lei.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO EM NÚMEROS -->
+  <section class="stats-section" id="numeros">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>📊 A Inclusão em Números no Brasil</h2>
+        <p>Dados reais extraídos do Censo Escolar que mostram o progresso e os desafios!</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">+112%</div>
+          <p>Crescimento das matrículas de alunos com deficiência nas escolas regulares (de 2005 a 2011)!</p>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-number">-48%</div>
+          <p>Queda nas matrículas em escolas totalmente isoladas ou segregadas no mesmo período.</p>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-number">37%</div>
+          <p>Alunos com deficiência intelectual ainda estavam fora da escola em 2010 — nosso desafio atual!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS QUE TODO MUNDO JÁ SE FEZ (FAQ) -->
+  <section class="faq-section" id="faq">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>❓ Perguntas que Todo Mundo Já Se Fez!</h2>
+        <p>Clique em qualquer pergunta para revelar a resposta direta e simples:</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Integração e Inclusão são a mesma coisa?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            Não! Na <strong>integração</strong>, o aluno estuda em uma sala separada e a escola não se adapta. Na <strong>inclusão</strong>, todos estudam juntos e a escola faz todas as mudanças necessárias!
+          </div>
+        </div>
+
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>O que significa AEE?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            Significa <strong>Atendimento Educacional Especializado</strong>. É um apoio extra dado em Salas de Recursos Multifuncionais para ajudar o aluno no contra-turno das aulas regulares.
+          </div>
+        </div>
+
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>A escola particular pode cobrar taxa extra?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <strong>Não!</strong> A Lei Brasileira de Inclusão proíbe expressamente a cobrança de valores adicionais nas mensalidades para alunos com deficiência.
+          </div>
+        </div>
+
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Uma escola pode recusar a matrícula?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <strong>Nunca!</strong> Recusar a matrícula de um estudante por ter deficiência é considerado crime no Brasil, com punição que pode gerar até prisão do responsável.
+          </div>
+        </div>
+
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Só ter a vaga na escola garante o aprendizado?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            Não basta apenas estar presente na sala de aula. É preciso ter material adaptado, apoio pedagógico e professores preparados para que haja aprendizado real!
+          </div>
+        </div>
+
+        <div class="faq-card" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Qual é o maior desafio atual da inclusão?</span>
+            <div class="faq-icon-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            Além da estrutura física, é a formação continuada de professores e a criação de uma cultura de parceria forte entre a escola, o governo e as famílias.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MURAL DE REFLEXÕES INTERATIVO (STYLE PADLET) -->
+  <section class="mural-section" id="mural">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>📌 Mural de Reflexões Interativo</h2>
+        <p>Deixe sua mensagem sobre o que significa uma Escola Inclusiva para você!</p>
+      </div>
+
+      <div class="mural-container">
+        <form class="mural-form" id="muralForm">
+          <input type="text" id="muralInput" placeholder="Digite uma frase reflexiva (Ex: Inclusão é respeitar o tempo de cada um!)..." maxlength="100" required>
+          
+          <div class="color-picker">
+            <span>Cor:</span>
+            <div class="color-dot selected" style="background: #FFE000;" onclick="selectColor(this, '#FFE000')"></div>
+            <div class="color-dot" style="background: #E8F8EA;" onclick="selectColor(this, '#E8F8EA')"></div>
+            <div class="color-dot" style="background: #EBF3FF;" onclick="selectColor(this, '#EBF3FF')"></div>
+            <div class="color-dot" style="background: #FFE8E5;" onclick="selectColor(this, '#FFE8E5')"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">📍 Prender Post-it</button>
+        </form>
+
+        <div class="postits-grid" id="postitsGrid">
+          <div class="postit" style="background: #FFE000; --r: -2deg;">
+            <div class="postit-tag">Exemplo</div>
+            "Inclusão não é sobre deixar entrar, é sobre acolher com respeito!"
+          </div>
+          <div class="postit" style="background: #E8F8EA; --r: 2deg;">
+            <div class="postit-tag">Exemplo</div>
+            "Escola legal é a escola onde todo mundo aprende junto e faz amigos."
+          </div>
+          <div class="postit" style="background: #FFE8E5; --r: -1.5deg;">
+            <div class="postit-tag">Exemplo</div>
+            "Aprender no seu próprio ritmo é um direito de qualquer estudante!"
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: QUIZ INTERATIVO GAMIFICADO -->
+  <style>
+    /* (observe: estilos principais do quiz já foram adicionados ao <head>; este bloco serve apenas caso queira regras locais) */
+  </style>
+
+  <section class="quiz-section" id="quiz">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>🎮 Quiz Desafio: Mestre da Inclusão!</h2>
+        <p>Teste seus conhecimentos sobre o tema e veja se você já está afiado nos direitos e conceitos!</p>
+      </div>
+
+      <div class="quiz-card">
+        <!-- Container das Perguntas -->
+        <div id="quizQuestionBox">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quizProgress"></div>
+          </div>
+
+          <div class="quiz-meta">
+            <span class="quiz-step-tag" id="quizStepTag">Pergunta 1 de 5</span>
+            <span class="quiz-score-live" id="quizScoreLive">Pontos: 0</span>
+          </div>
+
+          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta...</h3>
+
+          <div class="quiz-options" id="quizOptions">
+            <!-- Opções geradas via JS -->
+          </div>
+
+          <div class="quiz-feedback" id="quizFeedback"></div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="btnNextQuestion" style="display: none;" onclick="nextQuestion()">Próxima Pergunta ➔</button>
+          </div>
+        </div>
+
+        <!-- Tela do Resultado Final -->
+        <div class="quiz-results" id="quizResults">
+          <div class="quiz-results-icon" id="resultsIcon">🏆</div>
+          <h3 id="resultsTitle">Parabéns!</h3>
+          <p id="resultsSubtitle" style="font-size: 1.15rem; color: #555; font-weight: 600;">Você concluiu o Quiz da Escola Inclusiva!</p>
+          <div>
+            <span class="quiz-score-badge" id="finalScoreBadge">0 de 5 acertos</span>
+          </div>
+          <p id="resultsFeedbackText" style="font-size: 1.05rem; color: #444; max-width: 500px; margin: 0 auto 24px; line-height: 1.6;"></p>
+          <button class="btn btn-secondary" onclick="restartQuiz()">🔄 Tentar Novamente</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- MODAL GENÉRICO PARA INTERAÇÕES -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle" style="color: var(--c-blue); font-size: 1.6rem; margin-bottom: 12px;"></h3>
+    <p id="modalBody" style="font-size: 1.05rem; color: #444; line-height: 1.6;"></p>
+    <button class="btn btn-secondary" onclick="closeModal()" style="margin-top: 16px; width: 100%; justify-content: center;">Entendi!</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -1106,11 +1298,9 @@
   // Menu Mobile
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-    });
-  }
+  navToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+  });
 
   // Linha do Tempo Alternável
   function showStage(stageId, btnElement) {
@@ -1156,29 +1346,29 @@
   const muralInput = document.getElementById('muralInput');
   const postitsGrid = document.getElementById('postitsGrid');
 
-  if (muralForm && muralInput && postitsGrid) {
-    muralForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = muralInput.value.trim();
-      if (!text) return;
+  muralForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = muralInput.value.trim();
+    if (!text) return;
 
-      const rotDeg = (Math.random() * 6 - 3).toFixed(1);
-      const postit = document.createElement('div');
-      postit.className = 'postit';
-      postit.style.background = selectedPostitColor;
-      postit.style.setProperty('--r', rotDeg + 'deg');
-      
-      postit.innerHTML = `
-        <div class="postit-tag">Sua Reflexão</div>
-        "${text}"
-      `;
+    const rotDeg = (Math.random() * 6 - 3).toFixed(1);
+    const postit = document.createElement('div');
+    postit.className = 'postit';
+    postit.style.background = selectedPostitColor;
+    postit.style.setProperty('--r', rotDeg + 'deg');
+    
+    postit.innerHTML = `
+      <div class="postit-tag">Sua Reflexão</div>
+      "${text}"
+    `;
 
-      postitsGrid.prepend(postit);
-      muralInput.value = '';
-    });
-  }
+    postitsGrid.prepend(postit);
+    muralInput.value = '';
+  });
 
-    /* INÍCIO - JS DO QUIZ (LÓGICA DO QUIZ) */
+  /* ==============================================
+     LOGICA DO QUIZ INTERATIVO
+  ============================================== */
   const quizData = [
     {
       question: "O que define verdadeiramente o conceito de Educação Inclusiva?",
@@ -1353,8 +1543,6 @@
 
   // Inicializar o Quiz ao carregar a página
   renderQuestion();
-
-  /* FIM - JS DO QUIZ */
 </script>
 
 </body>
