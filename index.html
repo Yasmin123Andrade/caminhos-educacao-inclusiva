@@ -365,7 +365,97 @@
     background: white;
     border: 2px solid currentColor;
   }
-  
+
+   /* SECTION: LINHA DO TEMPO GAMEFICADA */
+  .timeline-section {
+    background: var(--bg-yellow-light);
+    border-top: 5px solid var(--c-yellow);
+    border-bottom: 5px solid var(--c-yellow);
+  }
+  .timeline-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+  }
+  .t-step-btn {
+    background: white;
+    border: 3px solid var(--c-blue);
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--c-blue);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 var(--c-blue);
+  }
+  .t-step-btn:hover, .t-step-btn.active {
+    background: var(--c-red);
+    color: white;
+    border-color: var(--c-darkred);
+    box-shadow: 0 4px 0 var(--c-darkred);
+    transform: translateY(-2px);
+  }
+
+  .timeline-display {
+    background: white;
+    border: 4px solid var(--c-blue);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-fun);
+    min-height: 240px;
+    position: relative;
+  }
+  .time-stage-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+  .time-stage-content.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stage-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .stage-badge {
+    font-family: 'Fredoka', sans-serif;
+    padding: 8px 18px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .stage-header h3 {
+    font-size: 1.8rem;
+    color: var(--c-blue);
+    margin: 0;
+  }
+  .stage-body p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .stage-fun-fact {
+    background: var(--bg-blue-light);
+    border-left: 6px solid var(--c-blue);
+    padding: 14px 18px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 20px;
+    font-weight: 700;
+    color: var(--c-blue);
+  }
+
+
 /* FOOTER */
   footer {
     background: var(--c-blue);
@@ -441,13 +531,13 @@
 
       postitsGrid.prepend(postit);
       muralInput.value = '';
-    });
+    };
   }
       postitsGrid.prepend(postit);
       muralInput.value = '';
-    });
-  }ine-height: 1.35;
-  }
+    };
+  ine-height: 1.35;
+  
   .quiz-options {
     display: flex;
     flex-direction: column;
@@ -923,7 +1013,81 @@
 
 </main>
 
+<!-- LINHA DO TEMPO GAMEFICADA -->
+  <section class="timeline-section" id="historia">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>🕹️ Trilha Histórica: A Evolução da Escola</h2>
+        <p>Clique nos botões das fases abaixo para viajar no tempo e ver como as coisas mudaram!</p>
+      </div>
 
+      <div class="timeline-nav">
+        <button class="t-step-btn active" onclick="showStage('stage1', this)">1. Exclusão (Passado Distante)</button>
+        <button class="t-step-btn" onclick="showStage('stage2', this)">2. Segregação (Séc. XIX)</button>
+        <button class="t-step-btn" onclick="showStage('stage3', this)">3. Integração (1970 - 1990)</button>
+        <button class="t-step-btn" onclick="showStage('stage4', this)">4. Inclusão (Dias de Hoje)</button>
+      </div>
+
+      <div class="timeline-display">
+        <!-- FASE 1 -->
+        <div id="stage1" class="time-stage-content active">
+          <div class="stage-header">
+            <span class="stage-badge" style="background: var(--c-darkred);">Fase 1</span>
+            <h3>Exclusão Total</h3>
+          </div>
+          <div class="stage-body">
+            <p>Antigamente, em um passado muito distante, as pessoas com deficiência nem sequer tinham o direito de ir para a escola. Elas ficavam isoladas em casa, escondidas da sociedade e totalmente sem acesso à educação.</p>
+            <div class="stage-fun-fact">
+              💡 Mudança: Apenas com a chegada de ideias de solidariedade e direitos humanos é que as pessoas começaram a perceber que todos mereciam atenção.
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 2 -->
+        <div id="stage2" class="time-stage-content">
+          <div class="stage-header">
+            <span class="stage-badge" style="background: var(--c-red);">Fase 2</span>
+            <h3>Segregação (Escolas Separadas)</h3>
+          </div>
+          <div class="stage-body">
+            <p>No século XIX, surgiram as primeiras escolas especiais. As crianças com deficiência finalmente podiam estudar, mas apenas em lugares separados, longe de outras crianças e de suas famílias.</p>
+            <div class="stage-fun-fact">
+              🇧🇷 No Brasil: Um exemplo foi o Imperial Instituto dos Meninos Cegos em 1854 (hoje Instituto Benjamin Constant), que deu os primeiros passos no país!
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div id="stage3" class="time-stage-content">
+          <div class="stage-header">
+            <span class="stage-badge" style="background: var(--c-blue);">Fase 3</span>
+            <h3>Integração (Mesmo Prédio, Salas Separadas)</h3>
+          </div>
+          <div class="stage-body">
+            <p>Entre as décadas de 1970 e 1990, os alunos especiais passaram a frequentar a mesma escola que os outros, mas ficavam presos em "salas especiais" separadas e com tarefas diferentes.</p>
+            <div class="stage-fun-fact">
+              🔍 O Desafio: A escola continuava sem se adaptar; esperava-se apenas que o aluno tentasse "se encaixar" do jeito dele.
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div id="stage4" class="time-stage-content">
+          <div class="stage-header">
+            <span class="stage-badge" style="background: var(--c-green);">Fase 4</span>
+            <h3>Inclusão Verdadeira (Todos na Mesma Sala!)</h3>
+          </div>
+          <div class="stage-body">
+            <p>É o modelo moderno que buscamos hoje! Todos estudam juntos na mesma turma. A escola passa por transformações para oferecer rampas, materiais interativos e o Atendimento Educacional Especializado (AEE).</p>
+            <div class="stage-fun-fact">
+              🌟 Hoje: A meta é transformar o ambiente para que ninguém fique para trás!
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 <!-- FOOTER -->
 <footer>
