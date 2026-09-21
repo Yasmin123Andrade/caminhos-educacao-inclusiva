@@ -39,6 +39,8 @@
   body {
     margin: 0;
     background-color: var(--bg-cream);
+    background-image: linear-gradient(rgba(0,59,140,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,59,140,.035) 1px, transparent 1px);
+    background-size: 28px 28px;
     color: var(--text-dark);
     font-family: 'Nunito', sans-serif;
     font-size: 17px;
@@ -176,7 +178,17 @@
     padding: 60px 0 80px;
     border-bottom: 6px dashed var(--c-blue);
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
   }
+  .hero::before { content: '✦'; position: absolute; top: 28px; right: 9%; color: var(--c-red); font-size: 5rem; line-height: 1; transform: rotate(14deg); opacity: .8; z-index: -1; animation: floatMark 4s ease-in-out infinite; }
+  .hero::after { content: 'APRENDER  •  ACOLHER  •  TRANSFORMAR'; position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); color: var(--c-blue); font: 800 .72rem 'Nunito', sans-serif; letter-spacing: 2px; white-space: nowrap; opacity: .65; }
+  .hero-copy { animation: revealUp .65s ease both; }
+  .hero-card-art { animation: revealUp .65s .12s ease both; }
+  .hero-route { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+  .route-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; background: rgba(255,255,255,.78); border: 2px solid rgba(0,59,140,.22); border-radius: 999px; color: var(--c-blue); font-size: .86rem; font-weight: 800; }
+  @keyframes revealUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes floatMark { 0%,100% { transform: translate(0, 0) rotate(14deg); } 50% { transform: translate(0, -10px) rotate(4deg); } }
   .hero-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -983,7 +995,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
-        <div>
+        <div class="hero-copy">
           <span class="hero-badge">🌟 Vamos Aprender Juntos!</span>
           <h1>Caminhos para uma <span class="hl">Escola Inclusiva</span></h1>
           <p class="hero-p">
@@ -992,6 +1004,11 @@
           <div class="hero-btns">
             <a href="#historia" class="btn btn-primary">🚀 Iniciar Viagem Histórica</a>
             <a href="#faq" class="btn btn-secondary">❓ Ver Perguntas Frequentes</a>
+          </div>
+          <div class="hero-route" aria-label="Roteiro da experiência">
+            <span class="route-chip">01 · Entender</span>
+            <span class="route-chip">02 · Explorar</span>
+            <span class="route-chip">03 · Participar</span>
           </div>
         </div>
         
@@ -1420,9 +1437,14 @@
   // Menu Mobile
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
-  navToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-  });
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mainNav.classList.remove('open'));
+    });
+  }
 
   // Linha do Tempo Alternável
   function showStage(stageId, btnElement) {
